@@ -15,6 +15,7 @@ test("reads fixture", async () => {
   expect(await read("test.json")).toEqual({
     hello: "world",
   })
+  expect(await read("test.txt")).toBe("hello\n")
 })
 
 test("writes fixture", async () => {
@@ -26,4 +27,7 @@ test("writes fixture", async () => {
 
   await write("test.json", hello)
   expect(await read("test.json")).toEqual(hello)
+
+  await write("test.txt", "hi")
+  expect(await read("test.txt")).toBe("hi")
 })
