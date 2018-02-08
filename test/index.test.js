@@ -16,6 +16,7 @@ test("reads fixture", async () => {
     hello: "world",
   })
   expect(await read("test.txt")).toBe("hello\n")
+  expect(await read("null")).toBeUndefined()
 })
 
 test("writes fixture", async () => {
@@ -30,4 +31,6 @@ test("writes fixture", async () => {
 
   await write("test.txt", "hi")
   expect(await read("test.txt")).toBe("hi")
+
+  expect(await write("null", "null")).toBeUndefined()
 })
