@@ -1,6 +1,6 @@
 {
   "name": "fxtr",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Copy files to tmp and read/write them",
   "main": "dist/index.js",
   "scripts": {
