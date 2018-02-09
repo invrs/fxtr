@@ -32,5 +32,6 @@ test("writes fixture", async () => {
   await write("test.txt", "hi")
   expect(await read("test.txt")).toBe("hi")
 
-  expect(await write("null", "null")).toBeUndefined()
+  await write("new.txt", "new")
+  expect(await read("new.txt")).toBe("new")
 })
