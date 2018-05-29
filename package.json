@@ -166,14 +166,15 @@
     ]
   },
   "starters": [
-    "basics",
     "babel",
     "babel-node",
     "babel-scripts",
+    "basics",
     "eslint",
     "husky",
     "jest",
-    "jest-scripts"
+    "jest-scripts",
+    "watchman-babel"
   ],
   "jest": {
     "setupFiles": [
@@ -181,6 +182,26 @@
     ],
     "testMatch": [
       "<rootDir>/test/**/*Test.js"
+    ]
+  },
+  "watchman": {
+    "triggers": [
+      {
+        "name": "babel",
+        "expression": [
+          "anyof",
+          [
+            "match",
+            "lib/**/*.js",
+            "wholename"
+          ]
+        ],
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ]
+      }
     ]
   }
 }
